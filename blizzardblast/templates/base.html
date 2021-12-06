@@ -9,22 +9,25 @@
         <title>{% block title %}{% endblock %}</title>
     </head>
     <body>
-        <div id="container">
-
+        <header>
+            <div id="company-header">
+                <h1 id="company-header-left">Blizzard Blast</h1>
+                <img id="company-header-right" src="{% static '/media/milkshake-pngrepo-com.png' %}">
+            </div>
+        </header>
+        <div id="nav-bar">
             <!-- navbar -->
             <ul class="navigation">
-                <li><a href="{% url 'homepage' %}">Home</a></li>
-                <li><a href="{% url 'order' %}">Order</a></li>
-                <li><a href="{% url 'inventory' %}">Inventory</a></li>
-                <li><a href="{% url 'schedule' %}">Schedule</a></li>
-                <li><a href="{% url 'report' %}">Report</a></li>
+                <li class="navbar-item"><a href="{% url 'homepage' %}">Home</a></li>
+                <li class="navbar-item"><a href="{% url 'order' %}">Order</a></li>
+                <li class="navbar-item"><a href="{% url 'inventory' %}">Inventory</a></li>
+                <li class="navbar-item"><a href="{% url 'schedule' %}">Schedule</a></li>
+                <li class="navbar-item"><a href="{% url 'report' %}">Report</a></li>
             </ul>
-
-            <!-- page content begins here -->
-
-            {% block content %}{% endblock %}
-            {% block scripts %}{% endblock %}
-
         </div>
+        <!-- page content begins here -->
+
+        {% block content %}{% endblock %}
+        {% block scripts %}{% endblock %}
     </body>
 </html>

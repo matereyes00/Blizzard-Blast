@@ -1,19 +1,122 @@
-#container {
-    margin: auto;
-    width: 50%;
-    border: 3px solid blue;
-    padding: 10px;
-    text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200&display=swap');
+/*INDEX.HTML
+BLACK - #000505
+ENG VIOLET - #3B3355
+DARK BLUE GREY - #5D5D81
+LIGHT STEEL BLUE - #BFCDE0
+WHITE - #FEFCFD
+*/
+
+
+body {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #3B3355;
 }
 
+/* ======= NAV BAR ======= */
 ul {
     list-style-type: none;
+    margin: 0;
     padding: 0;
 }
 
-.table {
+#nav-bar {
+    display: flex;
+    justify-content: center;
+    border-top: 1px #3B3355 solid;
+    border-bottom: 1px #3B3355 solid;
+    margin: 1rem 18rem;
+}
 
-    margin-left: auto;
-    margin-right: auto;
+.navbar-item {
+    float: left;
+    padding: 0.7rem;
+}
 
+.navbar-item:hover{
+    text-decoration: underline;
+}
+
+.navbar-item a {
+    text-decoration: none;
+    color: black;
+}
+
+/* ======= HEADING ======= */
+header {
+    padding: 0.5rem;
+    animation: gradient 1s 1s infinite;
+    color: #FEFCFD;
+}
+
+@keyframes gradient {
+    0% {
+        background-color:#5D5D81;
+    } 
+    100% {
+        background-color: #BFCDE0;
+    }
+}
+
+#heading {
+    text-align: center;
+}
+
+#company-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#company-header-left {
+    margin-right:0;
+}
+
+#company-header-right {
+    margin-left:0;
+}
+
+.view-title {
+    text-align: center;
+}
+
+/* ============== HOME PAGE =========== */
+#about_us {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+#company-pic {
+    margin-right: 0;
+}
+
+#company-description {
+    font-family: 'Lato', sans-serif;
+    flex-basis: 60%;
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+/* ======== ORDER.HTML ============ */
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.order-button {
+    border:none;
+    padding: 1rem 3rem;
+    background-color: #3B3355;
+    color: #FEFCFD;
+    border-radius: 4rem;
+}
+
+.order-button:hover {
+    cursor: pointer;
+    background-color: #BFCDE0;
+    color: #3B3355;
 }
