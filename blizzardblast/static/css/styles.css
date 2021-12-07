@@ -120,3 +120,66 @@ header {
     background-color: #BFCDE0;
     color: #3B3355;
 }
+
+#filter-area {
+    display: flex;
+    justify-content: center;
+}
+
+#filter-area>button {
+    padding: 0.5rem 7rem;
+    background-color: #BFCDE0;
+    color: #3B3355;
+    border-radius: 2rem;
+}
+
+.search-bar {
+    border:none;
+    padding: 12px;
+    margin: 0 12px;
+}
+
+#filter-area>.search-button {
+    border: none;
+    background-color: #BFCDE0;
+    color: #3B3355;
+    margin: 0.3rem 4rem;
+    padding: 0.5rem 8rem;
+    border-radius: 2rem;
+}
+
+#filter-area>.search-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: #3B3355;
+    color:#FEFCFD;
+}
+
+#search-filter {
+    border: #3B3355 1px solid;;
+    border-radius: 2rem;
+    padding: 0.6rem;
+}
+
+#CRUD-features {
+    display: flex;
+    justify-content: center;
+    margin: 4px auto;
+    padding: 10px;
+}
+
+#CRUD-features>button {
+    border: none;
+    background-color: #BFCDE0;
+    color: #3B3355;
+    margin: 0.3rem 4rem;
+    padding: 0.5rem 8rem;
+    border-radius: 2rem;
+}
+
+#CRUD-features>button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: #3B3355;
+    color:#FEFCFD;
+}

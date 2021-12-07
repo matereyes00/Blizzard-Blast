@@ -8,5 +8,18 @@
 
 {% block content %}
 <h1 class='view-title'>Inventory</h1>
+<!-- SEARCH BOX -->
+<div id="filter-area">
+    <select name="search-filter" id="search-filter">
+        <option selected="selected">Filter</option>
+        <option value="category">Category</option>
+    </select>
+    <input class="search-bar" size=60 type="text" placeholder="Search..">
+    <button class="search-button">Search</button>
+</div>
 
+<div id="CRUD-features">
+    <button id="add-to-inventory">Add to Inventory</button>
+    <button id="update">Refresh</button>
+</div>
 {% endblock %}

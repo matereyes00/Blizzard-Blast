@@ -8,10 +8,21 @@
 
 {% block content %}
 
-<h1 class='view-title'>Create Order</h1>
-<div class='button-container'>
-    <button class='order-button'>Add Order</button>
-    <button class='order-button'>Update Order</button>
-    <button class='order-button'>Delete Order</button>
+<h1 class='view-title'>Order</h1>
+<!-- SEARCH BOX -->
+<div id="filter-area">
+    <select name="search-filter" id="search-filter">
+        <option selected="selected">Filter</option>
+        <option value="total-sales-monthly">Total Monthly Sales</option>
+        <option value="Receipt">Individual Receipt</option>
+    </select>
+    <input class="search-bar" size=60 type="text" placeholder="Search..">
+    <button class="search-button">Search</button>
+</div>
+
+<div id="CRUD-features">
+    <button id="addorder">Add Order</button>
+    <button id="deleteorder">Delete Order</button>
+    <button id="update">Refresh</button>
 </div>
 {% endblock %}
