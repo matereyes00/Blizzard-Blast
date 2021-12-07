@@ -37,12 +37,38 @@ ul {
 }
 
 .navbar-item:hover{
+    cursor: pointer;
     text-decoration: underline;
 }
 
 .navbar-item a {
     text-decoration: none;
     color: black;
+}
+
+#footer {
+    padding: 1rem;
+    background-color: #3B3355;
+    margin-top: 2rem;
+}
+
+.footer-items {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-item {
+    display:inline-block;
+}
+
+.footer-item>a {
+    color: #FEFCFD;
+    text-decoration: none;
+}
+
+.footer-item>a:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 /* ======= HEADING ======= */
@@ -178,6 +204,29 @@ header {
 }
 
 #CRUD-features>button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: #3B3355;
+    color:#FEFCFD;
+}
+
+
+/* ============ REPORT.HTML =============== */
+#report-area {
+    display: flex;
+    justify-content: center;
+}
+
+.download-button {
+    border: none;
+    background-color: #BFCDE0;
+    color: #3B3355;
+    margin: 0.3rem 4rem;
+    padding: 0.5rem 8rem;
+    border-radius: 2rem;
+}
+
+.download-button:hover {
     text-decoration: underline;
     cursor: pointer;
     background-color: #3B3355;
