@@ -8,4 +8,6 @@ urlpatterns = [
     path('schedule', schedule, name='schedule'),
     path('report', report, name='report'),
     path('receipt', receipt, name='receipt'),
+    path('addorder', addorder, name='addorder' ),
+    
 ]

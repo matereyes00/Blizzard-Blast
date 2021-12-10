@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .forms import AddOrderForm
+
 
 def homepage(request):
     return render(request, "blizzardblast/templates/index.html")
@@ -19,3 +21,7 @@ def schedule(request):
 
 def report(request):
     return render(request, "blizzardblast/templates/report.html")
+
+def addorder(request):
+    form = AddOrderForm()
+    return render(request, "blizzardblast/templates/addorder.html", {'form': form})
