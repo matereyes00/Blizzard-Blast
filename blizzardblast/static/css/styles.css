@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200&display=swap');
 /*INDEX.HTML
+COLOR SCHEME
 BLACK - #000505
 ENG VIOLET - #3B3355
 DARK BLUE GREY - #5D5D81
@@ -128,6 +129,10 @@ header {
 }
 
 /* ======== ORDER.HTML and RECEIPT.HTML ============ */
+.title-area {
+    text-align: center;
+}
+
 .button-container {
     display: flex;
     justify-content: space-evenly;
@@ -215,13 +220,20 @@ header {
     justify-content: center;
 }
 
-a {
+a:link {
     text-decoration: none;
+    border: none;
+    color: #3B3355;
+    margin: 0.3rem;
+    padding: 0.5rem;
+    border-radius: 2rem;
 }
 
 a:hover {
     text-decoration: underline;
     cursor: pointer;
+    background-color: #3B3355;
+    color: #BFCDE0;
 }
 
 table, th {

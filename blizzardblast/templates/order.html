@@ -8,7 +8,10 @@
 
 {% block content %}
 
-<h1 class='view-title'>Order</h1>
+<div class="title-area">
+    <h1 class='view-title'>Order</h1>
+    <h3 class='view-subtitle'>Order Slip</h3>
+</div>
 <!-- SEARCH AREA-->
 <div id="filter-area">
     <button class="filter-button"><a href="{% url 'order' %}">Order Slip</a></button>
@@ -39,24 +42,27 @@
         
         <!-- TABLE ROW WITH INFO -->
         <tr>
-            <th>customer_no</th>
-            <th>customer_name</th>
-            <th>date</th>
-            <th>size</th>
+            <th>2039</th>
+            <th>Anna Doe</th>
+            <th>11/13/15</th>
+            <th>12 oz</th>
             <th>base_receipe</th>
-            <th>add_on_qty</th>
-            <th>add_on_name</th>
+            <th>1</th>
+            <th>
+                mini marshmallows,<br>
+                strawberry
+            </th>
         </tr>
 
         <!-- TABLE ROW WITHOUT INFO -->
         <tr>
-            <th>customer_no</th>
-            <th>customer_name</th>
-            <th>date</th>
-            <th>size</th>
-            <th>base_receipe</th>
-            <th>add_on_qty</th>
-            <th>add_on_name</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
         </tr>
 
     </table>

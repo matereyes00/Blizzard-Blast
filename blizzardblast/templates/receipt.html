@@ -8,8 +8,10 @@
 
 {% block content %}
 
-<h1 class='view-title'>Order</h1>
-<!-- SEARCH BOX -->
+<div class="title-area">
+    <h1 class='view-title'>Order</h1>
+    <h3 class='view-subtitle'>Receipt</h3>
+</div><!-- SEARCH BOX -->
 <div id="filter-area">
     <button class="filter-button"><a href="{% url 'order' %}">Order Slip</a></button>
     <button class="filter-button"><a href="{% url 'receipt' %}">Receipt</a></button>
@@ -29,6 +31,7 @@
         <tr>
             <th>customer_name</th>
             <th>transaction_no</th>
+            <th>date</th>
             <th>customer_order</th>
             <th>price_per_item</th>
             <th>price_per_order</th>
@@ -38,24 +41,34 @@
         
         <!-- TABLE ROW WITH INFO -->
         <tr>
-            <th>customer_name</th>
-            <th>transaction_no</th>
-            <th>customer_order</th>
-            <th>price_per_item</th>
-            <th>price_per_order</th>
-            <th>employee_name</th>
+            <th>Anna Doe</th>
+            <th>1409130034</th>
+            <th>11/13/15</th>
+            <th>
+                12 oz Cookies & Cream<br>
+                + 1 mini mallows<br>
+                + 1 strawberry
+            </th>
+            <th>
+                90.00<br>
+                10.00<br>
+                20.00<br>
+            </th>
+            <th>₱ 120.00</th>
+            <th>April</th>
             <th>total_sales</th>
         </tr>
 
         <!-- TABLE ROW WITHOUT INFO -->
         <tr>
-            <th>customer_name</th>
-            <th>transaction_no</th>
-            <th>customer_order</th>
-            <th>price_per_item</th>
-            <th>price_per_order</th>
-            <th>employee_name</th>
-            <th>total_sales</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
         </tr>
 
     </table>
