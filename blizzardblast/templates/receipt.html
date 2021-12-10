@@ -1,0 +1,63 @@
+{% extends 'blizzardblast\templates\base.html' %}
+{% load static %}
+
+{% block title %}Create Order{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+
+<h1 class='view-title'>Order</h1>
+<!-- SEARCH BOX -->
+<div id="filter-area">
+    <button class="filter-button"><a href="{% url 'order' %}">Order Slip</a></button>
+    <button class="filter-button"><a href="{% url 'receipt' %}">Receipt</a></button>
+    <input class="search-bar" size=60 type="text" placeholder="Search..">
+    <button class="search-button">Search</button>
+</div>
+
+<div id="CRUD-features">
+    <button class="crud-button">Add Order</button>
+    <button class="crud-button">Delete Order</button>
+    <button class="crud-button">Refresh</button>
+</div>
+
+<div id="receipt-table">
+    <table>
+        <!-- TABLE HEADER -->
+        <tr>
+            <th>customer_name</th>
+            <th>transaction_no</th>
+            <th>customer_order</th>
+            <th>price_per_item</th>
+            <th>price_per_order</th>
+            <th>employee_name</th>
+            <th>total_sales</th>
+        </tr>
+        
+        <!-- TABLE ROW WITH INFO -->
+        <tr>
+            <th>customer_name</th>
+            <th>transaction_no</th>
+            <th>customer_order</th>
+            <th>price_per_item</th>
+            <th>price_per_order</th>
+            <th>employee_name</th>
+            <th>total_sales</th>
+        </tr>
+
+        <!-- TABLE ROW WITHOUT INFO -->
+        <tr>
+            <th>customer_name</th>
+            <th>transaction_no</th>
+            <th>customer_order</th>
+            <th>price_per_item</th>
+            <th>price_per_order</th>
+            <th>employee_name</th>
+            <th>total_sales</th>
+        </tr>
+
+    </table>
+</div>
+{% endblock %}
