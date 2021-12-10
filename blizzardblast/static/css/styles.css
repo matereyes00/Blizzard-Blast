@@ -198,7 +198,7 @@ header {
     color: #3B3355;
     margin: 0.3rem;
     padding: 0.5rem;
-    border-radius: 2rem;
+    border-radius: 0.4rem;
 }
 
 .filter-button:hover {
@@ -223,16 +223,13 @@ header {
 a:link {
     text-decoration: none;
     border: none;
-    color: #3B3355;
+    color: #BFCDE0;
     margin: 0.3rem;
-    padding: 0.5rem;
-    border-radius: 2rem;
 }
 
 a:hover {
     text-decoration: underline;
     cursor: pointer;
-    background-color: #3B3355;
     color: #BFCDE0;
 }
 
@@ -255,7 +252,7 @@ table, th {
     color: #3B3355;
     margin: 0.3rem 4rem;
     padding: 0.5rem 8rem;
-    border-radius: 2rem;
+    border-radius: 0.5rem;
 }
 
 .download-button:hover {
