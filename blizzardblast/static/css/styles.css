@@ -127,7 +127,7 @@ header {
     margin-left: 5rem;
 }
 
-/* ======== ORDER.HTML ============ */
+/* ======== ORDER.HTML and RECEIPT.HTML ============ */
 .button-container {
     display: flex;
     justify-content: space-evenly;
@@ -152,13 +152,6 @@ header {
     justify-content: center;
 }
 
-#filter-area>button {
-    padding: 0.5rem 7rem;
-    background-color: #BFCDE0;
-    color: #3B3355;
-    border-radius: 2rem;
-}
-
 .search-bar {
     border:none;
     padding: 12px;
@@ -169,8 +162,8 @@ header {
     border: none;
     background-color: #BFCDE0;
     color: #3B3355;
-    margin: 0.3rem 4rem;
-    padding: 0.5rem 8rem;
+    margin: 0.3rem;
+    padding: 0.5rem;
     border-radius: 2rem;
 }
 
@@ -194,20 +187,47 @@ header {
     padding: 10px;
 }
 
-#CRUD-features>button {
+.crud-button, .filter-button {
     border: none;
     background-color: #BFCDE0;
     color: #3B3355;
-    margin: 0.3rem 4rem;
-    padding: 0.5rem 8rem;
+    margin: 0.3rem;
+    padding: 0.5rem;
     border-radius: 2rem;
 }
 
-#CRUD-features>button:hover {
+.filter-button:hover {
     text-decoration: underline;
     cursor: pointer;
     background-color: #3B3355;
     color:#FEFCFD;
+}
+
+.crud-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: #3B3355;
+    color:#FEFCFD;
+}
+
+#order-table, #receipt-table {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+table, th {
+    border: 1px solid black;
+    padding: 10px;
+    border-collapse: separate;
 }
 
 

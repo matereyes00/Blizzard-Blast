@@ -9,20 +9,56 @@
 {% block content %}
 
 <h1 class='view-title'>Order</h1>
-<!-- SEARCH BOX -->
+<!-- SEARCH AREA-->
 <div id="filter-area">
-    <select name="search-filter" id="search-filter">
-        <option selected="selected">Filter</option>
-        <option value="total-sales-monthly">Total Monthly Sales</option>
-        <option value="Receipt">Individual Receipt</option>
-    </select>
+    <button class="filter-button"><a href="{% url 'order' %}">Order Slip</a></button>
+    <button class="filter-button"><a href="{% url 'receipt' %}">Receipt</a></button>
+    
     <input class="search-bar" size=60 type="text" placeholder="Search..">
     <button class="search-button">Search</button>
 </div>
 
 <div id="CRUD-features">
-    <button id="addorder">Add Order</button>
-    <button id="deleteorder">Delete Order</button>
-    <button id="update">Refresh</button>
+    <button class="crud-button">Add Order</button>
+    <button class="crud-button">Delete Order</button>
+    <button class="crud-button">Refresh</button>
+</div>
+
+<div id="order-table">
+    <table>
+        <!-- TABLE HEADER -->
+        <tr>
+            <th>customer_no</th>
+            <th>customer_name</th>
+            <th>date</th>
+            <th>size</th>
+            <th>base_receipe</th>
+            <th>add_on_qty</th>
+            <th>add_on_name</th>
+        </tr>
+        
+        <!-- TABLE ROW WITH INFO -->
+        <tr>
+            <th>customer_no</th>
+            <th>customer_name</th>
+            <th>date</th>
+            <th>size</th>
+            <th>base_receipe</th>
+            <th>add_on_qty</th>
+            <th>add_on_name</th>
+        </tr>
+
+        <!-- TABLE ROW WITHOUT INFO -->
+        <tr>
+            <th>customer_no</th>
+            <th>customer_name</th>
+            <th>date</th>
+            <th>size</th>
+            <th>base_receipe</th>
+            <th>add_on_qty</th>
+            <th>add_on_name</th>
+        </tr>
+
+    </table>
 </div>
 {% endblock %}
