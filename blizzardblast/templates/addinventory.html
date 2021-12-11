@@ -1,15 +1,15 @@
 {% extends 'blizzardblast\templates\base.html' %}
 {% load static %}
 
-{% block title %}Add order{% endblock %}
+{% block title %}Add Ingredient in Inventory{% endblock %}
 
 {% block styles %}
 {% endblock %}
 
 {% block content %}
-<form action="/addorder" method="post" style="text-align:center">
+<form action="/addinventory" method="post" style="text-align:center">
     {% csrf_token %}
-    {{form.as_p}}
+    {{inventory_form.as_p}}
     <input type="submit" value="Submit">
   </form>
 

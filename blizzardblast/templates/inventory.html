@@ -13,13 +13,53 @@
     <select name="search-filter" id="search-filter">
         <option selected="selected">Filter</option>
         <option value="category">Category</option>
+        <option value="name_alphabetical">Name: A-to-Z</option>
     </select>
     <input class="search-bar" size=60 type="text" placeholder="Search..">
     <button class="search-button">Search</button>
 </div>
 
 <div id="CRUD-features">
-    <button id="add-to-inventory">Add to Inventory</button>
-    <button id="update">Refresh</button>
+    <button class="crud-button"><a href="{% url 'addinventory' %}">Add to Inventory</a></button>
+    <button class="crud-button">Refresh</button>
+</div>
+
+<div id="order-table">
+    <table>
+        <!-- TABLE HEADER -->
+        <tr>
+            <th>ingredient_id</th>
+            <th>Ingredient Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price per Serving</th>
+        </tr>
+        
+        <!-- TABLE ROWS WITH INFO -->
+        <tr>
+            <th>111</th>
+            <th>Vanilla Ice Cream</th>
+            <th>base</th>
+            <th>100</th>
+            <th>10</th>
+        </tr>
+
+        <tr>
+            <th>112</th>
+            <th>Strawberry</th>
+            <th>fruits</th>
+            <th>50</th>
+            <th>20</th>
+        </tr>
+
+        <!-- TABLE ROW WITHOUT INFO -->
+        <tr>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+    </table>
 </div>
 {% endblock %}
