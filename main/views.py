@@ -25,8 +25,8 @@ def schedule(request):
     for employee in Employee.objects.raw('SELECT * FROM employee'):
         print(employee.employee_name)
 
-    for role in EmployeeRole.objects.all():
-        print(role.role_description)
+    # for role in EmployeeRole.objects.all():
+    #     print(role.role_description)
     return render(request, "blizzardblast/templates/schedule.html")
 
 
