@@ -1,0 +1,47 @@
+{% extends 'blizzardblast\templates\base.html' %}
+{% load static %}
+
+{% block title %}Schedule{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<h1 class='view-title'>Schedule </h1>
+<div id="filter-system-navbar">
+  <ul class="navigation">
+    <li class="navbar-item"><a href="{% url 'schedule' %}">Show All</a></li>
+    <li class="navbar-item"><a href="{% url 'manager_query' %}">Manager (Y/N)</a></li>
+    <li class="navbar-item"><a href="{% url 'week_query' %}">Week</a></li>
+    <li class="navbar-item"><a href="{% url 'role_query' %}">Role</a></li>
+  </ul>
+</div>
+<table id="scheduling-table">
+  <tr>
+    <th>Week</th>
+    <th>Staff</th>
+    <th>Role</th>
+    <th>Day-Mgr</th>
+  </tr>
+
+    {% for q1 in week_query1%}
+    <tr>
+      <td> {{q1.role_date}}</td>
+      <td> {{q1.employee.employee_name}} </td>
+      <td> {{q1.role_description}} </td>
+      <td> {{q1.is_manager}} </td>
+    </tr>
+    {% endfor %}
+
+    {% for q2 in week_query2 %}
+    <tr>
+      <td> {{q2.role_date}}</td>
+      <td> {{q2.employee.employee_name}} </td>
+      <td> {{q2.role_description}} </td>
+      <td> {{q2.is_manager}} </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
