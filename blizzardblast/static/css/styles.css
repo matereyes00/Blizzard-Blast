@@ -75,14 +75,14 @@ ul {
 /* ======= HEADING ======= */
 header {
     padding: 0.5rem;
-    animation: gradient 1s 1s infinite;
+    animation: gradient 5s 5s infinite;
     color: #FEFCFD;
 }
 
 @keyframes gradient {
     0% {
         background-color:#5D5D81;
-    } 
+    }
     100% {
         background-color: #BFCDE0;
     }
