@@ -215,7 +215,7 @@ header {
     color:#FEFCFD;
 }
 
-#order-table, #receipt-table {
+#order-table, #receipt-table, #scheduling-table {
     display: flex;
     justify-content: center;
 }

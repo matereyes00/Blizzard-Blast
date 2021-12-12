@@ -18,16 +18,23 @@ class Employee(models.Model):
 
 
 class EmployeeRole(models.Model):
+
     ROLES = [
         ('Cashier', 'Cashier'),
         ('Preparation', 'Preparation'),
         ('Cleaning', 'Cleaning'),
     ]
 
+    IS_MANAGER = [
+        ('Y', 'Y'),
+        ('N', 'N'),
+    ]
+
+    role_id = models.AutoField(primary_key=True)
     role_date = models.DateField()
     employee = models.ForeignKey(Employee, models.DO_NOTHING)
     role_description = models.CharField(max_length=20, choices=ROLES)
-    is_manager = models.CharField(max_length=1)
+    is_manager = models.CharField(max_length=1, choices=IS_MANAGER)
 
     class Meta:
         managed = False
