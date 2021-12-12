@@ -8,7 +8,6 @@
 
 {% block content %}
 <h1 class='view-title'>Schedule </h1>
-
 <table id="scheduling-table">
   <tr>
     <th>Week</th>
@@ -16,13 +15,15 @@
     <th>Role</th>
     <th>Day-Mgr</th>
   </tr>
+  
+  {% for m in manager%}
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-    <td>Alfreds Futterkiste</td>
+    <td> {{m.role_date}}</td>
+    <td> {{m.employee.employee_name}} </td>
+    <td> {{m.role_description}} </td>
+    <td> {{m.is_manager}} </td>
   </tr>
-
+  {% endfor %}
 </table>
 
 {% endblock %}

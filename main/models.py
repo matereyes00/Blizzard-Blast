@@ -36,6 +36,11 @@ class EmployeeRole(models.Model):
     role_description = models.CharField(max_length=20, choices=ROLES)
     is_manager = models.CharField(max_length=1, choices=IS_MANAGER)
 
+    def employeename(self):
+        return self.employee.employee_name
+    
     class Meta:
         managed = False
         db_table = 'employeerole'
+
+    
