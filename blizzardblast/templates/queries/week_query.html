@@ -7,9 +7,7 @@
 {% endblock %}
 
 {% block content %}
-
 <h1 class='view-title'>Schedule </h1>
-
 <div id="filter-system-navbar">
   <ul class="navigation">
     <li class="navbar-item"><a href="{% url 'schedule' %}">Show All</a></li>
@@ -18,7 +16,6 @@
     <li class="navbar-item"><a href="{% url 'role_query' %}">Role</a></li>
   </ul>
 </div>
-
 <table id="scheduling-table">
   <tr>
     <th>Week</th>
@@ -27,15 +24,23 @@
     <th>Day-Mgr</th>
   </tr>
 
-    {% for a in all_values%}
+    {% for q1 in week_query1%}
     <tr>
-      <td> {{a.role_date}}</td>
-      <td> {{a.employee.employee_name}} </td>
-      <td> {{a.role_description}} </td>
-      <td> {{a.is_manager}} </td>
+      <td> {{q1.role_date}}</td>
+      <td> {{q1.employee.employee_name}} </td>
+      <td> {{q1.role_description}} </td>
+      <td> {{q1.is_manager}} </td>
     </tr>
     {% endfor %}
 
+    {% for q2 in week_query2 %}
+    <tr>
+      <td> {{q2.role_date}}</td>
+      <td> {{q2.employee.employee_name}} </td>
+      <td> {{q2.role_description}} </td>
+      <td> {{q2.is_manager}} </td>
+    </tr>
+    {% endfor %}
 
 </table>
 

@@ -24,7 +24,7 @@ ul {
     padding: 0;
 }
 
-#nav-bar {
+#filter-system-navbar, #nav-bar {
     display: flex;
     justify-content: center;
     border-top: 1px #3B3355 solid;
