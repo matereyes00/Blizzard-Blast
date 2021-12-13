@@ -204,15 +204,11 @@ header {
 .filter-button:hover {
     text-decoration: underline;
     cursor: pointer;
-    background-color: #3B3355;
-    color:#FEFCFD;
 }
 
 .crud-button:hover {
     text-decoration: underline;
     cursor: pointer;
-    background-color: #3B3355;
-    color:#FEFCFD;
 }
 
 #order-table, #receipt-table, #scheduling-table {
@@ -223,14 +219,13 @@ header {
 a:link {
     text-decoration: none;
     border: none;
-    color: #BFCDE0;
     margin: 0.3rem;
 }
 
 a:hover {
     text-decoration: underline;
     cursor: pointer;
-    color: #BFCDE0;
+    color: #5D5D81;
 }
 
 table, th {
