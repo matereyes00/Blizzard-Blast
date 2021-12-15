@@ -33,15 +33,11 @@ def schedule(request):
     )
 
 # 1: FILTER EMPLOYEES BY MANAGER FOR THE DAY - mate
-
-
 def manager_query(request):
     ismanager_query = EmployeeRole.objects.all().filter(is_manager='Y')
     return render(request, "blizzardblast/templates/queries/manager_query.html", {'manager': ismanager_query})
 
 # 3 : FILTER BY WEEK - dedz
-
-
 def week_query(request):
     week_query1 = EmployeeRole.objects.all().filter(
         role_date__range=["2025-09-01", "2025-09-06"]).order_by('role_date')
@@ -53,8 +49,6 @@ def week_query(request):
     )
 
 # 4: FILTER EMPLOYEES BY ROLES - xtine
-
-
 def role_query(request):
     role_query1 = EmployeeRole.objects.all().filter(role_description='Cashier')
     role_query2 = EmployeeRole.objects.all().filter(role_description='Preparation')
@@ -64,9 +58,8 @@ def role_query(request):
     }
     )
 
-
+# 2: FILTER EMPLOYEES IN ALPHABETICAL ORDER - felizia
 def alphabetical_query(request):
-    # 2: FILTER EMPLOYEES IN ALPHABETICAL ORDER - felizia
     alphabetical_query = EmployeeRole.objects.order_by(
         'employee__employee_name')
     for i in alphabetical_query:
