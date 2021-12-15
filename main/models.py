@@ -30,12 +30,24 @@ class Customer(models.Model):
         return self.customer_name
 
 class Ingredient(models.Model):
+    INGREDIENT_CATEGORIES = [
+        ('nuts','nuts'),
+        ('fruits','fruits'),
+        ('chocolate','chocolate'),
+        ('baked','baked'),
+        ('mix-in','mix-in'),
+        ('base','base'),
+        ('topping','topping')
+    ]
+    
     REPLENISHED_STOCK = [
         ('Y', 'Y'),
         ('N', 'N'),
     ]
+
     ingredient_id = models.AutoField(primary_key=True)
-    ingredient_name = models.CharField(max_length=255)
+    ingredient_name = models.CharField(max_length=255, blank=True)
+    category = models.CharField(max_length=200, choices=INGREDIENT_CATEGORIES)
     quantity = models.IntegerField()
     price_per_serving = models.FloatField()
     replenished_stock = models.CharField(max_length=1, choices=REPLENISHED_STOCK)
