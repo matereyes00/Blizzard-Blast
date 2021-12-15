@@ -1,7 +1,7 @@
 {% extends 'blizzardblast\templates\base.html' %}
 {% load static %}
 
-{% block title %}Create Order{% endblock %}
+{% block title %}Order{% endblock %}
 
 {% block styles %}
 {% endblock %}
@@ -31,39 +31,21 @@
     <table>
         <!-- TABLE HEADER -->
         <tr>
-            <th>customer_no</th>
             <th>customer_name</th>
             <th>date</th>
-            <th>size</th>
-            <th>base_recipe</th>
-            <th>add_on_qty</th>
-            <th>add_on_name</th>
+            <th>item</th>
+            <th>Employee in  charge</th>
         </tr>
         
         <!-- TABLE ROW WITH INFO -->
+        {% for order in orders%}
         <tr>
-            <td>2039</td>
-            <td>Anna Doe</td>
-            <td>11/13/15</td>
-            <td>12 oz</td>
-            <td>base_receipe</td>
-            <td>1</td>
-            <td>
-                mini marshmallows,<br>
-                strawberry
-            </td>
+            <td>{{order.customer}}</td>
+            <td>{{order.order_date}}</td>
+            <td>{{order.item}}</td>
+            <td>{{order.employee}}</td>
         </tr>
-
-        <!-- TABLE ROW WITHOUT INFO -->
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
+        {%endfor%}
 
     </table>
 </div>

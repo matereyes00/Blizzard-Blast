@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .forms import AddInventoryForm, AddOrderForm
 from .models import *
+
 
 
 def homepage(request):
@@ -10,7 +11,10 @@ def homepage(request):
 
 
 def order(request):
-    return render(request, "blizzardblast/templates/order.html")
+    
+    orders_context = Orders.objects.all()
+    
+    return render(request, "blizzardblast/templates/order.html", {'orders': orders_context})
 
 
 def receipt(request):
@@ -74,11 +78,24 @@ def report(request):
     return render(request, "blizzardblast/templates/report.html")
 
 
+# FORMS
 def addorder(request):
     form = AddOrderForm()
-    return render(request, "blizzardblast/templates/addorder.html", {'form': form})
+    
+    context = {
+        'form': form 
+    }
+    
+    if request.method == 'POST':
+        #print("Printing post: ", request.POST)
+        form = AddOrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/order')
+
+    return render(request, "blizzardblast/templates/addorder.html", context)
 
 
 def addinventory(request):
     form = AddInventoryForm()
-    return render(request, "blizzardblast/templates/addinventory.html", {'inventory_form': form})
+    return render(request, "blizzardblast/templates/addinventory.html", {'form':form})
