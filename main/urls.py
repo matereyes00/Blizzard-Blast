@@ -4,7 +4,7 @@ from .views import *
 urlpatterns = [
     # main views
     path('', homepage, name='homepage'),
-        # order view
+    # order view
     path('order', order, name='order'),
     path('receipt', receipt, name='receipt'),
     path('inventory', inventory, name='inventory'),
@@ -14,6 +14,10 @@ urlpatterns = [
 
     #forms
     path('addorder', addorder, name='addorder'),
+    path('additem', additem, name='additem'),
+    path('addcustomer', addcustomer, name='addcustomer'),
+    path('addingredient', addingredient, name='addingredient'),
+    path('addBaseFlavor', addbaseflavor, name='addBaseFlavor'),
     path('addinventory', addinventory, name='addinventory'),
 
     #queries

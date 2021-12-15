@@ -1,0 +1,16 @@
+{% extends 'blizzardblast\templates\base.html' %}
+{% load static %}
+
+{% block title %}Add order{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<form action="/addingredient" method="POST" style="text-align:center">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit">
+  </form>
+
+{% endblock %}

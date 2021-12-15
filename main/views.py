@@ -1,41 +1,42 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from .forms import AddInventoryForm, AddOrderForm
+from .forms import *
 from .models import *
 
 
-
+# ========================== MAIN VIEWS ==========================
 def homepage(request):
     return render(request, "blizzardblast/templates/index.html")
 
-
 def order(request):
-    
     orders_context = Orders.objects.all()
-    
     return render(request, "blizzardblast/templates/order.html", {'orders': orders_context})
-
 
 def receipt(request):
     return render(request, "blizzardblast/templates/receipt.html")
 
-
 def inventory(request):
-    return render(request, "blizzardblast/templates/inventory.html")
+    ingredients_context = Ingredient.objects.all()
+    base_flavor_context = BaseFlavor.objects.all()
 
+    contexts = {
+        'baseflavor' : base_flavor_context,
+        'inventory' : ingredients_context
+    }
+    return render(request, "blizzardblast/templates/inventory.html", contexts)
 
 def schedule(request):
     all_values = EmployeeRole.objects.all()
-
-    # 5: FILTER EMPLOYEES AND ROLES BY DATE IN ORDER - xx
-    date_order_query = EmployeeRole.objects.all().order_by('role_date')
-
-    return render(request, "blizzardblast/templates/schedule.html", {
-        'all_values': all_values
-    }
+    return render(request, 
+        "blizzardblast/templates/schedule.html", 
+        {'all_values': all_values}
     )
 
+def report(request):
+    return render(request, "blizzardblast/templates/report.html")
+
+# ========================== SCHEDULE QUERIES ==========================
 # 1: FILTER EMPLOYEES BY MANAGER FOR THE DAY - mate
 def manager_query(request):
     ismanager_query = EmployeeRole.objects.all().filter(is_manager='Y')
@@ -64,27 +65,21 @@ def role_query(request):
 
 # 2: FILTER EMPLOYEES IN ALPHABETICAL ORDER - felizia
 def alphabetical_query(request):
-    alphabetical_query = EmployeeRole.objects.order_by(
-        'employee__employee_name')
-    for i in alphabetical_query:
-        print(i)
+        alphabetical_query = EmployeeRole.objects.order_by(
+            'employee__employee_name')
+        for i in alphabetical_query:
+            print(i)
 
-    return render(request, "blizzardblast/templates/queries/alphabetical_query.html", {
-        'alphabetical': alphabetical_query
-    })
-
-
-def report(request):
-    return render(request, "blizzardblast/templates/report.html")
+        return render(request, "blizzardblast/templates/queries/alphabetical_query.html", {
+            'alphabetical': alphabetical_query
+        })
 
 
-# FORMS
+
+# ========================== FORMS ==========================
 def addorder(request):
     form = AddOrderForm()
-    
-    context = {
-        'form': form 
-    }
+    context = {'form': form }
     
     if request.method == 'POST':
         #print("Printing post: ", request.POST)
@@ -93,9 +88,48 @@ def addorder(request):
             form.save()
             return redirect('/order')
 
-    return render(request, "blizzardblast/templates/addorder.html", context)
+    return render(request, "blizzardblast/templates/forms/addorder.html", context)
 
+def additem(request):
+    form = AddItemForm()
+    context = {'form':form}
+    if request.method == 'POST':
+        form = AddItemForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/order')
+    return render(request, "blizzardblast/templates/forms/additem.html", context)
+
+def addcustomer(request):
+    form = AddCustomerForm()
+    context = {'form':form}
+    if request.method == 'POST':
+        form = AddCustomerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/order')
+    return render(request, "blizzardblast/templates/forms/addcustomer.html", context)
+
+def addingredient(request):
+    form = AddIngredient()
+    context = {'form':form}
+    if request.method == 'POST':
+        form = AddIngredient(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/inventory')
+    return render(request, "blizzardblast/templates/forms/addingredient.html", context)
+
+def addbaseflavor(request):
+    form = AddBaseFlavor()
+    context = {'form':form}
+    if request.method == 'POST':
+        form = AddBaseFlavor(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/inventory')
+    return render(request, "blizzardblast/templates/forms/addBaseFlavor.html", context)
 
 def addinventory(request):
     form = AddInventoryForm()
-    return render(request, "blizzardblast/templates/addinventory.html", {'form':form})
+    return render(request, "blizzardblast/templates/forms/addinventory.html", {'form':form})
