@@ -207,8 +207,12 @@ a:hover {
     justify-content: center;
 }
 
+#baseflavor {
+    display: flex;
+    justify-content: center;
+}
+
 table, th {
-    border: 1px solid black;
     padding: 5px;
     border-collapse: separate;
 }

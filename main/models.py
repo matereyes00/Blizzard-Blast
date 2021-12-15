@@ -36,7 +36,7 @@ class Ingredient(models.Model):
         ('chocolate','chocolate'),
         ('baked','baked'),
         ('mix-in','mix-in'),
-        ('base','base'),
+        # ('base','base'),
         ('topping','topping')
     ]
     

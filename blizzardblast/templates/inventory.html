@@ -19,7 +19,8 @@
 
 <div class="inventory buttonpanel">
     <button class="add ingredient"><a href="{% url 'addingredient' %}">Add Ingredient</a></button>
-    <button class="add"><a href="{% url 'addBaseFlavor' %}">Add Base Flavor</a></button>
+    <button class="add BaseFlavor"><a href="{% url 'addBaseFlavor' %}">Add Base Flavor</a></button>
+    <button class="add show BaseFlavor"><a href="{% url 'showBaseFlavors' %}">Show Base Flavors</a></button>
 </div>
 
 <div id="order-table">
@@ -31,6 +32,7 @@
             <th>Quantity</th>
             <th>Price per Serving</th>
             <th>Replenished Stock?</th>
+            <th>Options</th>
         </tr>
 
         
@@ -38,15 +40,15 @@
         <!-- TABLE ROWS WITH INFO -->
         {% for ingredient in inventory %}
         <tr>
-            {% if ingredient.ingredient_name == baseflavor.bf_name %}
-                <td>{{baseflavor.bf_name}}</td>
-            {% else %}
-                <td>{{ingredient.ingredient_name}}</td>
-            {% endif %}
+            <td>{{ingredient.ingredient_name}}</td>
             <td>{{ingredient.category}}</td>
             <td>{{ingredient.quantity}}</td>
             <td>{{ingredient.price_per_serving}}</td>
             <td>{{ingredient.replenished_stock}}</td>
+            <td>
+                <button class="edit-value edit">Edit</button>
+                <button class="edit-value delete">Delete</button>
+            </td>
             
         </tr>
         {% endfor %}

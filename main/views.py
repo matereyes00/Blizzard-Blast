@@ -18,10 +18,8 @@ def receipt(request):
 
 def inventory(request):
     ingredients_context = Ingredient.objects.all()
-    base_flavor_context = BaseFlavor.objects.all()
 
     contexts = {
-        'baseflavor' : base_flavor_context,
         'inventory' : ingredients_context
     }
     return render(request, "blizzardblast/templates/inventory.html", contexts)
@@ -74,7 +72,12 @@ def alphabetical_query(request):
             'alphabetical': alphabetical_query
         })
 
-
+def showBaseFlavors(request):
+    show_bfs = BaseFlavor.objects.all()
+    contexts = {
+        'show_bfs' : show_bfs
+    }
+    return render(request, "blizzardblast/templates/showBaseFlavors.html", contexts)
 
 # ========================== FORMS ==========================
 def addorder(request):
