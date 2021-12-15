@@ -15,13 +15,19 @@ class BaseFlavor(models.Model):
     class Meta:
         managed = False
         db_table = 'base_flavor'
+    def __str__(self):
+        return self.bf_name
 
 class Customer(models.Model):
     customer_id = models.AutoField(primary_key=True)
     customer_name = models.CharField(max_length=255)
+    
     class Meta:
         managed = False
         db_table = 'customer'
+
+    def __str__(self):
+        return self.customer_name
 
 class Ingredient(models.Model):
     REPLENISHED_STOCK = [
@@ -38,6 +44,9 @@ class Ingredient(models.Model):
         managed = False
         db_table = 'ingredient'
 
+    def __str__(self):
+        return self.ingredient_name
+
 class Size(models.Model):
     SIZES = [
         ('8', '8'),
@@ -46,12 +55,14 @@ class Size(models.Model):
     ] 
 
     size_id = models.AutoField(primary_key=True)
-    serv_size = models.CharField(max_length=2, choices=SIZES)
+    serv_size = models.CharField(max_length=100, choices=SIZES)
 
     class Meta:
         managed = False
         db_table = 'size'
 
+    def __str__(self):
+        return str(self.serv_size)
 
 class Employee(models.Model):
     employee_id = models.IntegerField(primary_key=True)
@@ -66,7 +77,6 @@ class Employee(models.Model):
 
 
 class EmployeeRole(models.Model):
-
     ROLES = [
         ('Cashier', 'Cashier'),
         ('Preparation', 'Preparation'),
@@ -80,7 +90,7 @@ class EmployeeRole(models.Model):
 
     role_id = models.AutoField(primary_key=True)
     role_date = models.DateField()
-    employee = models.ForeignKey(Employee, models.DO_NOTHING)
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     role_description = models.CharField(max_length=20, choices=ROLES)
     is_manager = models.CharField(max_length=1, choices=IS_MANAGER)
 
@@ -93,24 +103,28 @@ class EmployeeRole(models.Model):
 
 class Item(models.Model):
     item_id = models.AutoField(primary_key=True)
-    bf = models.ForeignKey(BaseFlavor, models.DO_NOTHING)
-    ingredient = models.ForeignKey(Ingredient, models.DO_NOTHING)
-    size = models.ForeignKey(Size, models.DO_NOTHING)
+    bf = models.ForeignKey(BaseFlavor, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    size = models.ForeignKey(Size, on_delete=models.CASCADE)
     io_quantity = models.IntegerField()
     total_sales = models.FloatField()
 
-    def ingredientname(self):
-        return self.ingredient.ingredient_name, self.size.serv_size, self.bf.bf_name
+    def __str__(self):
+        return self.bf.bf_name + " with " + self.ingredient.ingredient_name + "  || size: " + str(self.size.serv_size)
     class Meta:
         managed = False
         db_table = 'item'
 
 class Orders(models.Model):
     order_id = models.AutoField(primary_key=True)
-    customer_id = models.ForeignKey(Customer, models.DO_NOTHING)
-    item_id = models.ForeignKey(Item, models.DO_NOTHING)
-    employee_id = models.ForeignKey(Employee, models.DO_NOTHING)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    employee = models.ForeignKey(Employee,on_delete=models.CASCADE)
     order_date = models.DateField()
     class Meta:
         managed = False
         db_table = 'orders'
+        verbose_name_plural = "Orders"
+
+    def __str__(self):
+        return self.customer.customer_name + " ordered " + str(self.item) + "  from: " + self.employee.employee_name + " on " + str(self.order_date)
