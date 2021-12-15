@@ -12,21 +12,29 @@
     <h1 class='view-title'>Order</h1>
     <h3 class='view-subtitle'>Order Slip</h3>
 </div>
-<!-- SEARCH AREA-->
-<div id="filter-area">
-    <button class="filter-button"><a href="{% url 'order' %}">Order Slip</a></button>
-    <button class="filter-button"><a href="{% url 'receipt' %}">Receipt</a></button>
-    
-    <input class="search-bar" size=60 type="text" placeholder="Search..">
-    <button class="search-button">Search</button>
+
+<div class="order buttonpanel">
+    <!-- GETTING THE RESULTS AREA-->
+    <div class="getresults area">
+        <h4 class="title-area">Slips and Reciepts</h4>
+        <div class="get-results">
+            <button class="loadresults orderslip-button"><a href="{% url 'order' %}">Order Slip</a></button>
+            <button class="loadresults receipt-button"><a href="{% url 'receipt' %}">Receipt</a></button>
+        </div>
+    </div>
+
+    <!-- FILLING IN FORMS AREA-->
+    <div class="addingforms area">
+        <h4 class="title-area">Adding in new customers, items and orders</h4>
+        <div class="add-forms">
+            <button class="add orderform-button"><a href="{% url 'addorder' %}">Add Order</a></button>
+            <button class="add itemform-button"><a href="{% url 'additem' %}">Add Item</a></button>
+            <button class="add customerform-button"><a href="{% url 'addcustomer' %}">Add Customer</a></button>
+        </div>
+    </div>
 </div>
 
-<div id="CRUD-features">
-    <button class="crud-button"><a href="{% url 'addorder' %}">Add Order</a></button>
-    <button class="crud-button">Delete Order</button>
-    <button class="crud-button">Refresh</button>
-</div>
-
+<!-- TABLE AREA-->
 <div id="order-table">
     <table>
         <!-- TABLE HEADER -->
@@ -34,7 +42,7 @@
             <th>customer_name</th>
             <th>date</th>
             <th>item</th>
-            <th>Employee in  charge</th>
+            <th>Employee in charge</th>
         </tr>
         
         <!-- TABLE ROW WITH INFO -->

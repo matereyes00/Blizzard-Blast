@@ -15,51 +15,41 @@
         <option value="category">Category</option>
         <option value="name_alphabetical">Name: A-to-Z</option>
     </select>
-    <input class="search-bar" size=60 type="text" placeholder="Search..">
-    <button class="search-button">Search</button>
 </div>
 
-<div id="CRUD-features">
-    <button class="crud-button"><a href="{% url 'addinventory' %}">Add to Inventory</a></button>
-    <button class="crud-button">Refresh</button>
+<div class="inventory buttonpanel">
+    <button class="add ingredient"><a href="{% url 'addingredient' %}">Add Ingredient</a></button>
+    <button class="add"><a href="{% url 'addBaseFlavor' %}">Add Base Flavor</a></button>
 </div>
 
 <div id="order-table">
     <table>
         <!-- TABLE HEADER -->
         <tr>
-            <th>ingredient_id</th>
             <th>Ingredient Name</th>
             <th>Category</th>
             <th>Quantity</th>
             <th>Price per Serving</th>
+            <th>Replenished Stock?</th>
         </tr>
+
+        
         
         <!-- TABLE ROWS WITH INFO -->
+        {% for ingredient in inventory %}
         <tr>
-            <th>111</th>
-            <th>Vanilla Ice Cream</th>
-            <th>base</th>
-            <th>100</th>
-            <th>10</th>
+            {% if ingredient.ingredient_name == baseflavor.bf_name %}
+                <td>{{baseflavor.bf_name}}</td>
+            {% else %}
+                <td>{{ingredient.ingredient_name}}</td>
+            {% endif %}
+            <td>{{ingredient.category}}</td>
+            <td>{{ingredient.quantity}}</td>
+            <td>{{ingredient.price_per_serving}}</td>
+            <td>{{ingredient.replenished_stock}}</td>
+            
         </tr>
-
-        <tr>
-            <th>112</th>
-            <th>Strawberry</th>
-            <th>fruits</th>
-            <th>50</th>
-            <th>20</th>
-        </tr>
-
-        <!-- TABLE ROW WITHOUT INFO -->
-        <tr>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-            <th>&nbsp;</th>
-        </tr>
+        {% endfor %}
     </table>
 </div>
 {% endblock %}

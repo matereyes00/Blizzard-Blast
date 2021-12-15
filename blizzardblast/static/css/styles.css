@@ -129,13 +129,21 @@ header {
 }
 
 /* ======== ORDER.HTML, RECEIPT.HTML, INVENTORY.HTML ============ */
+
+/* POSITIONING OF BUTTONS AND ALL */
 .title-area {
     text-align: center;
+    margin-bottom: 0;
 }
 
-.button-container {
+.title-area>.view-subtitle {
+    text-align: center;
+    margin-top: -25px;
+}
+
+.buttonpanel {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .order-button {
@@ -152,47 +160,16 @@ header {
     color: #3B3355;
 }
 
-#filter-area {
+.add-forms, .get-results {
     display: flex;
     justify-content: center;
-}
-
-.search-bar {
-    border:none;
-    padding: 12px;
-    margin: 0 12px;
-}
-
-#filter-area>.search-button {
-    border: none;
-    background-color: #BFCDE0;
-    color: #3B3355;
-    margin: 0.3rem;
-    padding: 0.5rem;
-    border-radius: 2rem;
-}
-
-#filter-area>.search-button:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    background-color: #3B3355;
-    color:#FEFCFD;
-}
-
-#search-filter {
-    border: #3B3355 1px solid;;
-    border-radius: 2rem;
-    padding: 0.6rem;
-}
-
-#CRUD-features {
-    display: flex;
-    justify-content: center;
-    margin: 4px auto;
+    margin-top: -7px;
     padding: 10px;
 }
 
-.crud-button, .filter-button {
+
+/* BUTTON STYLES */
+.add, .loadresults {
     border: none;
     background-color: #BFCDE0;
     color: #3B3355;
@@ -201,19 +178,14 @@ header {
     border-radius: 0.4rem;
 }
 
-.filter-button:hover {
+.loadresults:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
-.crud-button:hover {
+.add:hover {
     text-decoration: underline;
     cursor: pointer;
-}
-
-#order-table, #receipt-table, #scheduling-table {
-    display: flex;
-    justify-content: center;
 }
 
 a:link {
@@ -228,10 +200,22 @@ a:hover {
     color: #5D5D81;
 }
 
+
+/* TABLE STYLES */
+#order-table, #receipt-table, #scheduling-table {
+    display: flex;
+    justify-content: center;
+}
+
 table, th {
     border: 1px solid black;
-    padding: 10px;
+    padding: 5px;
     border-collapse: separate;
+}
+
+td {
+    padding:10px;
+    border: 1px solid black;
 }
 
 
