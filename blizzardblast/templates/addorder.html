@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-<form action="/addorder" method="post" style="text-align:center">
+<form action="/addorder" method="POST" style="text-align:center">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Submit">
