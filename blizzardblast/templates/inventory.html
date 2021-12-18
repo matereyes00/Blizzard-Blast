@@ -8,50 +8,15 @@
 
 {% block content %}
 <h1 class='view-title'>Inventory</h1>
-<!-- SEARCH BOX -->
-<div id="filter-area">
-    <select name="search-filter" id="search-filter">
-        <option selected="selected">Filter</option>
-        <option value="category">Category</option>
-        <option value="name_alphabetical">Name: A-to-Z</option>
-    </select>
-</div>
 
 <div class="inventory buttonpanel">
-    <button class="add ingredient"><a href="{% url 'addingredient' %}">Add Ingredient</a></button>
-    <button class="add BaseFlavor"><a href="{% url 'addBaseFlavor' %}">Add Base Flavor</a></button>
-    <button class="add show BaseFlavor"><a href="{% url 'showBaseFlavors' %}">Show Base Flavors</a></button>
+    <button class="add show BaseFlavor"><a href="{% url 'baseFlavors' %}">Base Flavors</a></button>
+    <button class="add show addOnIngredients"><a href="{% url 'addOnIngredients' %}">Ingredients</a></button>
 </div>
 
-<div id="order-table">
-    <table>
-        <!-- TABLE HEADER -->
-        <tr>
-            <th>Ingredient Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
-            <th>Price per Serving</th>
-            <th>Replenished Stock?</th>
-            <th>Options</th>
-        </tr>
+<div class="instructions help">
 
-        
-        
-        <!-- TABLE ROWS WITH INFO -->
-        {% for ingredient in inventory %}
-        <tr>
-            <td>{{ingredient.ingredient_name}}</td>
-            <td>{{ingredient.category}}</td>
-            <td>{{ingredient.quantity}}</td>
-            <td>{{ingredient.price_per_serving}}</td>
-            <td>{{ingredient.replenished_stock}}</td>
-            <td>
-                <button class="edit-value edit">Edit</button>
-                <button class="edit-value delete">Delete</button>
-            </td>
-            
-        </tr>
-        {% endfor %}
-    </table>
+    
 </div>
+
 {% endblock %}

@@ -143,7 +143,7 @@ header {
 
 .buttonpanel {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .order-button {
@@ -207,7 +207,7 @@ a:hover {
     justify-content: center;
 }
 
-#baseflavor {
+#baseflavor, #ingredient-table {
     display: flex;
     justify-content: center;
 }

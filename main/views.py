@@ -9,20 +9,40 @@ from .models import *
 def homepage(request):
     return render(request, "blizzardblast/templates/index.html")
 
+# ========================== ORDERS =====================================
 def order(request):
+    return render(request, "blizzardblast/templates/order.html")
+
+def orderSlip(request):
     orders_context = Orders.objects.all()
-    return render(request, "blizzardblast/templates/order.html", {'orders': orders_context})
+    return render(request, "blizzardblast/templates/filtered_views/orderslip.html", {'orders': orders_context})
 
 def receipt(request):
-    return render(request, "blizzardblast/templates/receipt.html")
+    return render(request, "blizzardblast/templates/filtered_views/receipt.html")
 
+# ========================== INVENTORY =====================================
 def inventory(request):
+    return render(request, "blizzardblast/templates/inventory.html")
+
+# ADD ONS / INGREDIENTS
+def addOnIngredients(request):
     ingredients_context = Ingredient.objects.all()
 
     contexts = {
         'inventory' : ingredients_context
     }
-    return render(request, "blizzardblast/templates/inventory.html", contexts)
+
+    return render(request, "blizzardblast/templates/filtered_views/addons_ingredient.html", contexts)
+
+# BASE FLAVORS 
+def baseFlavors(request):
+    show_bfs = BaseFlavor.objects.all()
+    contexts = {
+        'show_bfs' : show_bfs
+    }
+    return render(request, "blizzardblast/templates/filtered_views/baseFlavors.html", contexts)
+
+
 
 def schedule(request):
     all_values = EmployeeRole.objects.all()
@@ -72,12 +92,6 @@ def alphabetical_query(request):
             'alphabetical': alphabetical_query
         })
 
-def showBaseFlavors(request):
-    show_bfs = BaseFlavor.objects.all()
-    contexts = {
-        'show_bfs' : show_bfs
-    }
-    return render(request, "blizzardblast/templates/showBaseFlavors.html", contexts)
 
 # ========================== FORMS ==========================
 def addorder(request):
