@@ -1,0 +1,40 @@
+{% extends 'blizzardblast\templates\base.html' %}
+{% load static %}
+
+{% block title %}Add Customer{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<div class="title-area">
+    <h1 class='view-title'>Inventory</h1>
+    <h3 class='view-subtitle'>Base Flavors</h3>
+    <button class="loadresults inventory"><a href="{% url 'inventory' %}">Show Inventory</a></button>
+</div>
+
+<div class="inventory buttonpanel">
+    <button class="add BaseFlavor"><a href="{% url 'addBaseFlavor' %}">Add Base Flavor</a></button>
+</div>
+
+<table id="baseflavor">
+    <!-- TABLE HEADER -->
+    <tr>
+        <th>Base Flavor</th>
+        <th>Options</th>
+    </tr>
+    
+    <!-- TABLE ROW WITH INFO -->
+    {% for bf in show_bfs%}
+    <tr>
+        <td>{{bf.bf_name}}</td>
+        <td>
+            <button class="edit-value edit">Edit</button>
+            <button class="delete-value delete">Delete</button>
+        </td>
+    </tr>
+    {%endfor%}
+
+</table>
+
+{% endblock %}

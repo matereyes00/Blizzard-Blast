@@ -1,0 +1,52 @@
+{% extends 'blizzardblast\templates\base.html' %}
+{% load static %}
+
+{% block title %}Inventory{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+<div class="title-area">
+    <h1 class='view-title'>Inventory</h1>
+    <h3 class='view-subtitle'>Ingredients (Add Ons)</h3>
+    <button class="loadresults inventory"><a href="{% url 'inventory' %}">Show Inventory</a></button>
+</div>
+    
+
+<div class="inventory buttonpanel">
+    <button class="add ingredient"><a href="{% url 'addingredient' %}">Add Ingredient</a></button>
+</div>
+
+<div id="ingredient-table">
+    <table>
+        <!-- TABLE HEADER -->
+        <tr>
+            <th>Ingredient Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price per Serving</th>
+            <th>Replenished Stock?</th>
+            <th>Options</th>
+        </tr>
+
+        
+        
+        <!-- TABLE ROWS WITH INFO -->
+        {% for ingredient in inventory %}
+        <tr>
+            <td>{{ingredient.ingredient_name}}</td>
+            <td>{{ingredient.category}}</td>
+            <td>{{ingredient.quantity}}</td>
+            <td>{{ingredient.price_per_serving}}</td>
+            <td>{{ingredient.replenished_stock}}</td>
+            <td>
+                <button class="edit-value edit">Edit</button>
+                <button class="delete-value delete">Delete</button>
+            </td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

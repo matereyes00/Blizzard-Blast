@@ -11,13 +11,9 @@
 <div class="title-area">
     <h1 class='view-title'>Order</h1>
     <h3 class='view-subtitle'>Receipt</h3>
-</div><!-- SEARCH BOX -->
-<div id="filter-area">
-    <button class="filter-button"><a href="{% url 'order' %}">Order Slip</a></button>
-    <button class="filter-button"><a href="{% url 'receipt' %}">Receipt</a></button>
-    <input class="search-bar" size=60 type="text" placeholder="Search..">
-    <button class="search-button">Search</button>
+    <button class="loadresults order"><a href="{% url 'order' %}">Order</a></button>
 </div>
+
 
 <div id="CRUD-features">
     <button class="crud-button">Add Order</button>

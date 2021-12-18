@@ -1,0 +1,60 @@
+{% extends 'blizzardblast\templates\base.html' %}
+{% load static %}
+
+{% block title %}Order{% endblock %}
+
+{% block styles %}
+{% endblock %}
+
+{% block content %}
+
+<div class="title-area">
+    <h1 class='view-title'>Order</h1>
+    <h3 class='view-subtitle'>Order Slip</h3>
+</div>
+
+<div class="order buttonpanel">
+    <!-- GETTING THE RESULTS AREA-->
+    <div class="getresults area">
+        <h4 class="title-area">Slips and Reciepts</h4>
+        <div class="get-results">
+            <button class="loadresults orderslip-button"><a href="{% url 'order' %}">Order Slip</a></button>
+            <button class="loadresults receipt-button"><a href="{% url 'receipt' %}">Receipt</a></button>
+        </div>
+    </div>
+
+    <!-- FILLING IN FORMS AREA-->
+    <div class="addingforms area">
+        <h4 class="title-area">Adding in new customers, items and orders</h4>
+        <div class="add-forms">
+            <button class="add orderform-button"><a href="{% url 'addorder' %}">Add Order</a></button>
+            <button class="add itemform-button"><a href="{% url 'additem' %}">Add Item</a></button>
+            <button class="add customerform-button"><a href="{% url 'addcustomer' %}">Add Customer</a></button>
+        </div>
+    </div>
+</div>
+
+<!-- TABLE AREA-->
+<div id="order-table">
+    <table>
+        <!-- TABLE HEADER -->
+        <tr>
+            <th>customer_name</th>
+            <th>date</th>
+            <th>item</th>
+            <th>Employee in charge</th>
+        </tr>
+        
+        <!-- TABLE ROW WITH INFO -->
+        {% for order in orders%}
+        <tr>
+            <td>{{order.customer}}</td>
+            <td>{{order.order_date}}</td>
+            <td>{{order.item}}</td>
+            <td>{{order.employee}}</td>
+        </tr>
+        {%endfor%}
+
+    </table>
+</div>
+{% endblock %}
