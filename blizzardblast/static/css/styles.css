@@ -146,6 +146,11 @@ header {
     justify-content: center;
 }
 
+.inventory {
+    display: flex;
+    justify-content: center;
+}
+
 .order-button {
     border:none;
     padding: 1rem 3rem;
