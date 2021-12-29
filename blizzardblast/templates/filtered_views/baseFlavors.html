@@ -29,8 +29,10 @@
     <tr>
         <td>{{bf.bf_name}}</td>
         <td>
-            <button class="edit-value edit">Edit</button>
-            <button class="delete-value delete">Delete</button>
+            <button class="crud edit">
+                <a class="crud-value edit" href="{% url 'update_baseflavor' bf.bf_id %}">
+                Edit</a></button>            
+            <button class="crud-value delete">Delete</button>
         </td>
     </tr>
     {%endfor%}

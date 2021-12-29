@@ -42,8 +42,6 @@ def baseFlavors(request):
     }
     return render(request, "blizzardblast/templates/filtered_views/baseFlavors.html", contexts)
 
-
-
 def schedule(request):
     all_values = EmployeeRole.objects.all()
     return render(request, 
@@ -137,11 +135,37 @@ def addingredient(request):
             return redirect('/inventory')
     return render(request, "blizzardblast/templates/forms/addingredient.html", context)
 
+def updateIngredient(request,pk):
+    ingredient = Ingredient.objects.get(ingredient_id=pk)
+    form = AddIngredient(instance=ingredient)
+    context = {'form':form}
+    # this handles updating the values in the form
+    if request.method == 'POST':
+        form = AddIngredient(request.POST, instance=ingredient)
+        if form.is_valid():
+            form.save()
+            return redirect('/inventory')
+    return render(request, "blizzardblast/templates/forms/addingredient.html", context)
+
 def addbaseflavor(request):
     form = AddBaseFlavor()
     context = {'form':form}
+    
     if request.method == 'POST':
         form = AddBaseFlavor(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/inventory')
+    
+    return render(request, "blizzardblast/templates/forms/addBaseFlavor.html", context)
+
+def updateBaseFlavor(request,pk):
+    bf = BaseFlavor.objects.get(bf_id=pk)
+    form = AddBaseFlavor(instance=bf)
+    context = {'form':form}
+    # this handles updating the values in the form
+    if request.method == 'POST':
+        form = AddBaseFlavor(request.POST, instance=bf)
         if form.is_valid():
             form.save()
             return redirect('/inventory')
